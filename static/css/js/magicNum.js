@@ -15,11 +15,11 @@ function getRint(max) {
 
 let out = 1
 let Tcounter = 5
-let Botnum = getRint(1)
 let max = 100
-
+alert("benvenuti! in questo gioco devi indovinare il numero magico generato dal computer, avrai 5 tentativi a disposizione, buona fortuna!")
 
 while (out === 1) {
+let Botnum = getRint(10)
 
 let number = prompt("inserisci un numero: ")
 
