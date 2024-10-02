@@ -23,10 +23,11 @@ let Botnum = getRint(10)
 
 let number = prompt("inserisci un numero: ")
 
-    while (number === null)
+    while (number === null || isNaN(number))
     {
 
      number = prompt("inserisci un numero: ")
+     
     }
     getRint(100)
     number = sanitize(number)
