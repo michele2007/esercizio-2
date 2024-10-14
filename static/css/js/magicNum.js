@@ -11,11 +11,25 @@ function getRint(max) {
     
 }
 
+function callback(event) {
+    console.log(event);
+    let campo = document.querySelector("[name=guess]")
+    console.log(campo.value)
 
+}
 
+let button = document.querySelector("[type=button]")
+
+button.addEventListener("click",callback)
 let out = 1
 let Tcounter = 5
 let max = 100
+
+
+
+
+
+/*
 alert("benvenuti! in questo gioco devi indovinare il numero magico generato dal computer, avrai 5 tentativi a disposizione, buona fortuna!")
 
 while (out === 1) {
@@ -57,3 +71,4 @@ let number = prompt("inserisci un numero: ")
         }
 
 }
+*/
