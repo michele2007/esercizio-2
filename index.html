@@ -4,27 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documento</title>
-    <style>
-        body{
-            background-color:rgb(113, 113, 223) ;
-        }
-       
-    </style>
+    <link rel="stylesheet" href="static/css/index.css">
 </head>
-<body>
-    <div>
-        <p>
- benvenuti! in questo gioco devi indovinare il numero magico generato dal computer, avrai 5 tentativi a disposizione, buona fortuna!
-        </p>
-    </div>
-    <form method="get">
-        <input type="number" name="guess">
-        <input type="button" value="indovina">
-        
-        
-    </form>
-    <script src="static/css/js/magicNum.js">
+<body class="centro">
 
+    <div>
+        <h1>
+           <strong>INDOVINA IL NUMERO</strong> 
+        </h1>
+
+
+    </div>
+    <div class ="lista">
+
+        <ol>
+            <li>Il computer sceglierà segretamente un numero intero casuale tra 1 e 100.</li>
+            <li>Il tuo obiettivo è indovinare questo numero segreto nel minor numero di tentativi possibile</li>
+            <li>Ad ogni tentativo, inserisci un numero e il computer ti darà un indizio</li>
+            <ul>Se il tuo numero è troppo basso, ti dirà "Troppo basso, prova un numero più alto!"</ul>
+            <ul>Se il tuo numero è troppo alto, ti dirà "Troppo alto, prova un numero più basso!"</ul>
+            <ul>Se indovini il numero esatto, vincerai la partita!</ul>
+            <li>Continua a fare tentativi finché non indovini il numero magico.</li>
+            <li>Alla fine del gioco, ti verrà mostrato il numero di tentativi che hai impiegato per indovinare.</li>
+            <li>Sfida te stesso a indovinare il numero con il minor numero di tentativi possibile!</li>
+        </ol>
+    </div>
+
+    <div>
+        <p>Inserisci il numero magico</p>
+    </div>
+
+    <form method="get">
+        <input type="number" name="guess" id="guess">
+        <input type="button" value="indovina">
+    </form>
+    <div id="feedback">
+        Non hai ancora inserito un numero.
+    </div>
+    <div id="message1">
+        Hai a disposizione 5 tentativi.
+    </div>
+    <script src="static/css/js/magicNum.js">
+        
     </script>
+
+    
 </body>
 </html>

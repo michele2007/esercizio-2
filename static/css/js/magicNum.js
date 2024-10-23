@@ -1,74 +1,61 @@
-function sanitize(san) {
-
-    return san.trim();
+function getRint(min = 1, max = 100) {
+    let number = Math.random();
+    number = number * (max - min + 1) + min;
+    return Math.floor(number);
 }
 
 
-function getRint(max) {
-    
-    
-    return Math.floor(Math.random() * max);
-    
+function sanitize(Var) {
+    let san;
+    if (!isNaN(Var)) {
+        san = parseInt(Var);
+    }
+    return san;
 }
 
 function callback(event) {
     console.log(event);
-    let campo = document.querySelector("[name=guess]")
-    console.log(campo.value)
+    let numberInsert = document.querySelector("#guess").value;
+    let num = sanitize(numberInsert);
+    console.log(numberInsert);
 
-}
-
-let button = document.querySelector("[type=button]")
-
-button.addEventListener("click",callback)
-let out = 1
-let Tcounter = 5
-let max = 100
-
-
-
-
-
-/*
-alert("benvenuti! in questo gioco devi indovinare il numero magico generato dal computer, avrai 5 tentativi a disposizione, buona fortuna!")
-
-while (out === 1) {
-let Botnum = getRint(10)
-
-let number = prompt("inserisci un numero: ")
-
-    while (number === null || isNaN(number))
-    {
-
-     number = prompt("inserisci un numero: ")
-     
-    }
-    getRint(100)
-    number = sanitize(number)
-    number = parseInt(number)
-
-    if (number === Botnum)
-    {
-
-        console.log("il numero è corretto,  hai vinto!")
-        alert("il numero è corretto")
-        out = 0
-        
-    }
-    else
-    {
-        Tcounter  = Tcounter - 1 
-        console.log("il numero è sbagliato, il numero generato era: ",Botnum," ti rimangono ",Tcounter," tentativi")
-        alert("il numero è sbagliato, il numero generato era: " + Botnum+ " ti rimangono " + Tcounter + " tentativi")
-        
-    }
-
-    if (Tcounter === 0)
-        {
-            out = 0
-            console.log("hai terminato i tentativi")
-            alert("hai terminato i tentativi!")
+    if (isNaN(num) || num > 100 || num < 1) {
+        document.querySelector("#feedback").innerHTML = `Il numero <strong>${num}</strong> non è valido.`;
+        message.innerHTML =  `Inserisci un numero valido.`
+    } else if (tentativi != 5 && num != number) {
+        if (num > number) {
+            document.querySelector("#feedback").innerHTML = `Il numero <strong>${num}</strong> è troppo alto.`;
+            tentativi = tentativi + 1;
+            flag = flag-1;
+            message.innerHTML =  `Ti rimangono <strong>${flag}</strong> tentativi`
+        } else if (num < number) {
+            document.querySelector("#feedback").innerHTML =`Il numero <strong>${num}</strong> è troppo basso.`;
+            flag = flag-1;
+            tentativi = tentativi + 1;
+            message.innerHTML =  `Ti rimangono <strong>${flag}</strong> tentativi`
+        } else if (num === number) {
+            document.querySelector("#feedback").innerHTML = "Hai vinto!";
+            message.innerHTML =  `Il numero era effetivamente <strong>${number}</strong>!`
+            button.disabled = true
         }
+    }
+
+    if (tentativi === 5) {
+        document.querySelector("#feedback").innerHTML = "Hai terminato i tentativi";
+        message.innerHTML =  `Il numero effetivo era <strong>${number}</strong>!`
+        button.disabled = true
+    }
+
 
 }
-*/
+
+// Initialize variables
+let message =  document.querySelector("#message1");
+let flag = 5
+flag = sanitize(flag)
+let button = document.querySelector("[type=button]");
+button.addEventListener("click", callback);
+let tentativi = 0;
+let number = getRint(1, 100);
+let max = 100;
+
